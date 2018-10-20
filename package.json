@@ -1,6 +1,6 @@
 {
   "name": "vue-electron",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "",
   "description": "An electron-vue project",
   "license": null,
@@ -19,7 +19,8 @@
     "pack:renderer": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.renderer.config.js",
     "test": "npm run unit && npm run e2e",
     "unit": "karma start test/unit/karma.conf.js",
-    "postinstall": "npm run lint:fix"
+    "postinstall": "npm run lint:fix",
+    "publish": "build -p always"
   },
   "build": {
     "productName": "vue-electron",
@@ -53,7 +54,12 @@
     },
     "linux": {
       "icon": "build/icons"
-    }
+    },
+    "publish": [{
+      "provider": "github",
+      "owner": "emrekeskinmac",
+      "repo": "electron-test-update"
+    }]
   },
   "dependencies": {
     "axios": "^0.18.0",
